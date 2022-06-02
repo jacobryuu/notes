@@ -1,0 +1,114 @@
+" vim-Plug
+call plug#begin('~/.vim/plugged')
+
+"for python
+Plug 'nvie/vim-flake8'
+
+"ncm2
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+
+"vim-plug-help
+
+"vim-plug-help
+Plug 'junegunn/vim-plug'
+
+" nerdtree
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+"fzf
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+
+"ag
+Plug 'rking/ag.vim'
+
+"java plugin
+Plug 'xuhdev/indent-java.vim'
+
+"Vim alignment plugin
+Plug 'junegunn/vim-easy-align'
+
+"Aligning
+Plug 'godlygeek/tabular'
+
+"git status
+Plug 'airblade/vim-gitgutter'
+
+"search
+Plug 'haya14busa/incsearch.vim'
+Plug 'justinmk/vim-sneak'
+
+Plug 'tpope/vim-surround'
+
+" go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+
+call plug#end()
+
+"autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
+
+syntax on
+filetype plugin indent on
+color desert
+set vb t_vb=
+set noerrorbells
+set nocompatible
+set number
+set autoindent
+set smartindent
+set smarttab
+set cindent
+set incsearch
+set showmatch
+set showcmd
+set hlsearch
+set ruler
+set nobackup
+set undodir="/tmp"
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set background=dark
+set cursorline
+set foldmarker={,}
+set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,cp936,Shift_Jis,gb18030,big5,euc-jp,euc-kr,latin1
+set fileencoding=UTF-8
+set pastetoggle=<F10>
+set nomodeline
+map <F9> <ESC>:exe ":silent 1,$!xmllint --format --recover - 2>/dev/null"<CR>
+
+"autocmd VimEnter * NERDTree
+let NERDTreeQuitOnOpen = 1
+let NERDChristmasTree=1
+let g:NERDTreeWinSize = 18 
+map <F1> :NERDTreeToggle<CR>
+
+"easy plugin
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+"ag
+let g:ag_prg="/usr/local/bin/ag --vimgrep"
+
+" fzf
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+nnoremap <silent> <C-p> :Files<CR>
+nmap <C-p> :Files<CR>
+nmap <C-e> :Buffers<CR>
+
+" Insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
