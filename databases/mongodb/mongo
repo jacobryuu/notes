@@ -1,0 +1,7 @@
+# note
+
+## db export
+
+'''code
+mongoexport --uri mongodb://user:pwd@host:port/konnect --collection collection_name  --type csv --out out.csv
+'''

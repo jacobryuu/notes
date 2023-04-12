@@ -5,6 +5,13 @@ init
 initdb /usr/local/var/postgres --encoding=UTF-8 --username=postgres -A md5 -W
 initdb --help
 
+
+
+/opt/homebrew/Cellar/postgresql@14/14.5_3/bin/initdb --locale=C -E UTF-8 /opt/homebrew/var/postgresql@14 --username=postgres -A md5 -W
+
+initdb --locale=C -E UTF-8 /opt/homebrew/var/postgresql@15 --username=postgres -A md5 -W
+
+
 base operation
 psql -U [user] -d [database] -h [host] -p [post]
 
@@ -36,7 +43,7 @@ base command
 \password：设置当前登录用户的密码
 \h：查看SQL命令的解释，比如\h select。
 \?：查看psql命令列表。
-\l：列出所有数据库。
+\l：列出所有数据库。¥d
 \c [database_name]：连接其他数据库。
 \d：列出当前数据库的所有表格。
 \d [table_name]：列出某一张表格的结构。
